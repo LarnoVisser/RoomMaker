@@ -4,8 +4,7 @@ using System.Linq;
 using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Structure;
-using Autodesk.Revit.DesignAutomation;
-using DesignAutomationFramework;
+using DesignAutomationFramework;   // ✅ this is the correct namespace for DA bridge
 using Newtonsoft.Json.Linq;
 
 namespace RoomMaker
