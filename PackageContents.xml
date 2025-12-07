@@ -1,0 +1,13 @@
+<ApplicationPackage SchemaVersion="1.0"
+                    AutodeskProduct="Revit"
+                    Name="RoomMaker"
+                    Description="Create a simple room from JSON using Revit Design Automation"
+                    AppVersion="1.0.0"
+                    ProductCode="{00000000-0000-0000-0000-000000000000}">
+  <Components>
+    <Component AppName="RoomMaker"
+               ModuleName="./Contents/RoomMaker.dll"
+               AppDescription="RoomMaker Revit DA plugin"
+               LoadOnAutoCADStartup="False" />
+  </Components>
+</ApplicationPackage>
