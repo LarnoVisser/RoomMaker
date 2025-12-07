@@ -13,9 +13,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Restore and build
-      run: |
-        msbuild RoomMaker.csproj /p:Configuration=Release /restore
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+
+    - name: Restore NuGet packages
+      run: nuget restore RoomMaker.csproj
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Build project
+      run: msbuild RoomMaker.csproj /p:Configuration=Release
 
     - name: Create AppBundle folder
       run: |
