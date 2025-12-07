@@ -1,10 +1,11 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Collections.Generic;      // ✅ add this
 using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Structure;
-using DesignAutomationFramework;   // ✅ this is the correct namespace for DA bridge
+using DesignAutomationFramework;
 using Newtonsoft.Json.Linq;
 
 namespace RoomMaker
@@ -112,14 +113,16 @@ namespace RoomMaker
                 Wall.Create(doc, Line.CreateBound(p3, p4), wallType.Id, level.Id, H, 0, false, false);
                 Wall.Create(doc, Line.CreateBound(p4, p1), wallType.Id, level.Id, H, 0, false, false);
 
-                // 6. Create floor
-                CurveArray floorProfile = new CurveArray();
-                floorProfile.Append(Line.CreateBound(p1, p2));
-                floorProfile.Append(Line.CreateBound(p2, p3));
-                floorProfile.Append(Line.CreateBound(p3, p4));
-                floorProfile.Append(Line.CreateBound(p4, p1));
-
-                doc.Create.NewFloor(floorProfile, floorType, level, false);
+                // 6. Create floor (Revit 2023+ API – use Floor.Create with CurveLoop)
+                CurveLoop floorLoop = new CurveLoop();
+                floorLoop.Append(Line.CreateBound(p1, p2));
+                floorLoop.Append(Line.CreateBound(p2, p3));
+                floorLoop.Append(Line.CreateBound(p3, p4));
+                floorLoop.Append(Line.CreateBound(p4, p1));
+                
+                IList<CurveLoop> loops = new List<CurveLoop> { floorLoop };
+                
+                Floor floor = Floor.Create(doc, loops, floorType.Id, level.Id);
 
                 tx.Commit();
             }
