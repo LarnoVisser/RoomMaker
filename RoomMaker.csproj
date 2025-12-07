@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Design Automation bridge (gives you DesignAutomationBridge.dll) -->
     <PackageReference Include="Autodesk.Forge.DesignAutomation.Revit" Version="2023.0.1" />
+    <!-- Revit API reference assemblies (metadata only, enough to compile) -->
+    <PackageReference Include="Autodesk.Revit.Sdk.Refs.2023" Version="1.2.0" />
+    <!-- JSON helper -->
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 </Project>
