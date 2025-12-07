@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Restore and build
       run: |
@@ -30,7 +30,7 @@ jobs:
         powershell Compress-Archive -Path RoomMaker.bundle -DestinationPath RoomMaker.bundle.zip
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: RoomMakerBundle
         path: RoomMaker.bundle.zip
