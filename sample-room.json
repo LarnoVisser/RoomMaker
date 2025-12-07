@@ -1,0 +1,8 @@
+{
+  "room": {
+    "name": "Sample Room",
+    "length_m": 5.0,
+    "width_m": 4.0,
+    "height_m": 2.7
+  }
+}
