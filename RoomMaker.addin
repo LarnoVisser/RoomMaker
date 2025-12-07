@@ -1,0 +1,10 @@
+<RevitAddIns>
+  <AddIn Type="DBApplication">
+    <Name>RoomMaker</Name>
+    <Assembly>RoomMaker.dll</Assembly>
+    <AddInId>4f7a95c3-1c3f-4cea-9d1a-111111111111</AddInId>
+    <FullClassName>RoomMaker.App</FullClassName>
+    <VendorId>RMKR</VendorId>
+    <VendorDescription>RoomMaker Sample</VendorDescription>
+  </AddIn>
+</RevitAddIns>
